@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import Stats from 'three/examples/jsm/libs/stats.module'
 
 const scene = new THREE.Scene()
 
@@ -31,16 +32,21 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
     renderer.setSize(window.innerWidth, window.innerHeight)
-    render()
+    // render()
 }
+
+const stats = new Stats();
+document.body.appendChild(stats.dom);
 
 function animate() {
     requestAnimationFrame(animate)
 
-    cube.rotation.x += 0.01
-    cube.rotation.y += 0.01
+    // cube.rotation.x += 0.01
+    // cube.rotation.y += 0.01
 
     render()
+
+    stats.update()
 }
 
 function render() {
@@ -48,3 +54,4 @@ function render() {
 }
 
 animate()
+// render();
